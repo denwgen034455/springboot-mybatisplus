@@ -1,0 +1,65 @@
+server:
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 200
+    uri-encoding: UTF-8
+  port: 8081
+  servlet:
+      context-path: /springboot
+
+spring:
+  # 环境配置 dev|prod
+  profiles:
+    active: dev
+  mvc:
+    date-format: yyyy-MM-dd
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: ALWAYS
+  http:
+    encoding:
+      charset: UTF-8
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+  # 热加载
+  devtools:
+    restart:
+      enabled: true
+      additionalPaths: src/main/java
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  typeAliasesPackage: com.itlaowang.entity
+  global-config:
+    db-config:
+      id-type: AUTO
+      field-strategy: NOT_NULL
+      column-underline: true
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+
+#当前类日志输出级别
+logging:
+  level:
+    org:
+      springframework: ERROR
+      apache: ERROR
+      mybatis: ERROR
+    com:
+      baomidou:
+        mybatisplus: ERROR
+
+
+
+
