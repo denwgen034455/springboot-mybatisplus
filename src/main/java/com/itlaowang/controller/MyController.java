@@ -38,7 +38,7 @@ public class MyController {
         QueryWrapper<SysRoleTbl> queryWrapper = new QueryWrapper<>();
         queryWrapper.gt("sys_role_id",9);
         List<SysRoleTbl> list = iSysRoleTblService.list(queryWrapper);
-        logger.info("列表信息："+list);
+//        logger.info("列表信息："+list);
         return list;
     }
 
